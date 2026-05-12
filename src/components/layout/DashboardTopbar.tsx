@@ -151,7 +151,7 @@ export default function DashboardTopbar({
         <div className="h-6 w-px bg-border hidden sm:block"></div>
         
         <div className="flex items-center gap-2 pl-2">
-          <UserButton afterSignOutUrl="/" appearance={{ elements: { avatarBox: "w-8 h-8 ring-2 ring-transparent hover:ring-primary/20 transition-all" } }} />
+          <UserButton appearance={{ elements: { avatarBox: "w-8 h-8 ring-2 ring-transparent hover:ring-primary/20 transition-all" } }} />
         </div>
       </div>
     </header>

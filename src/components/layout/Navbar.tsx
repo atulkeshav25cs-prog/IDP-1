@@ -67,7 +67,7 @@ export default function Navbar() {
               <Link href="/dashboard" className="text-sm font-medium text-foreground hover:text-primary transition-colors mr-2">
                 Dashboard
               </Link>
-              <UserButton afterSignOutUrl="/" />
+              <UserButton />
             </>
           ) : (
             <>
