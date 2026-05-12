@@ -1,0 +1,148 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  clerkId       String    @unique
+  email         String    @unique
+  firstName     String?
+  lastName      String?
+  avatarUrl     String?
+  role          String    @default("USER")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  assessments   Assessment[]
+  careerMatches CareerMatch[]
+  savedCareers  SavedCareer[]
+  roadmaps      Roadmap[]
+  chatHistory   ChatHistory[]
+}
+
+model Assessment {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String    @db.ObjectId
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  status      String    @default("IN_PROGRESS") // IN_PROGRESS, COMPLETED
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  completedAt DateTime?
+
+  answers     Answer[]
+}
+
+model Question {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  category    String   // Interests, Personality, Skills, etc.
+  type        String   // MCQ, Slider, Scenario, Priority
+  text        String
+  options     String?  // JSON string
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  answers     Answer[]
+}
+
+model Answer {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  assessmentId  String     @db.ObjectId
+  assessment    Assessment @relation(fields: [assessmentId], references: [id], onDelete: Cascade)
+  questionId    String     @db.ObjectId
+  question      Question   @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  value         String     // Stored as string, parsed based on question type
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+
+  @@unique([assessmentId, questionId])
+}
+
+model Career {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  title           String   @unique
+  category        String
+  description     String
+  salaryMin       Int
+  salaryMax       Int
+  demandLevel     String   // High, Medium, Low
+  growthPotential String
+  aiRiskScore     Int      @default(0) // 0-100
+  requiredSkills  String   // JSON string of string[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  matches         CareerMatch[]
+  savedBy         SavedCareer[]
+  roadmaps        Roadmap[]
+}
+
+model CareerMatch {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  careerId    String   @db.ObjectId
+  career      Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  matchScore  Int      // 0-100
+  matchReason String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([userId, careerId])
+}
+
+model SavedCareer {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  careerId  String   @db.ObjectId
+  career    Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  notes     String?
+  createdAt DateTime @default(now())
+
+  @@unique([userId, careerId])
+}
+
+model Roadmap {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  careerId    String   @db.ObjectId
+  career      Career   @relation(fields: [careerId], references: [id], onDelete: Cascade)
+  level       String   // Beginner, Intermediate, Advanced
+  content     String   // JSON string
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  progress    Progress[]
+}
+
+model Progress {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  roadmapId   String   @db.ObjectId
+  roadmap     Roadmap  @relation(fields: [roadmapId], references: [id], onDelete: Cascade)
+  stepId      String   // Identifier for the specific step in the roadmap content
+  status      String   @default("PENDING") // PENDING, IN_PROGRESS, COMPLETED
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([roadmapId, stepId])
+}
+
+model ChatHistory {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role      String   // user, assistant
+  content   String
+  createdAt DateTime @default(now())
+}
