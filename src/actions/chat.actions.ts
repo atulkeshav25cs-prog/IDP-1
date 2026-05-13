@@ -27,7 +27,7 @@ export async function sendMessage(content: string) {
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     // Generate context-aware response based on keywords
-    let aiResponse = "I'm your CareerAI Counselor. I can help you understand your career matches, prepare for interviews, or suggest learning resources. What specific area would you like to focus on today?";
+    let aiResponse = "I'm your Carevo Counselor. I can help you understand your career matches, prepare for interviews, or suggest learning resources. What specific area would you like to focus on today?";
     
     const lowerContent = content.toLowerCase();
     if (lowerContent.includes("roadmap") || lowerContent.includes("path")) {

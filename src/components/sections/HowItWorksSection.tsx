@@ -23,7 +23,7 @@ const STEPS = [
 
 export default function HowItWorksSection() {
   return (
-    <section id="how-it-works" className="section-padding bg-background">
+    <section id="roadmaps" className="section-padding bg-background">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="badge-soft mb-4">How It Works</span>

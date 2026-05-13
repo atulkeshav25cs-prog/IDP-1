@@ -1,0 +1,10 @@
+<svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(10, 10)">
+    <path d="M 60 30 C 40 20, 15 25, 15 50 C 15 75, 40 85, 60 75" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" />
+    <path d="M 25 35 C 35 25, 50 25, 60 30" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" style="opacity:0.6" />
+    <path d="M 50 25 L 75 80 L 105 20" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 90 25 L 75 60" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" />
+  </g>
+  <text x="140" y="75" fill="#ffffff" font-family="system-ui, sans-serif" font-size="64" font-weight="bold" letter-spacing="0.1em">CAREVO</text>
+  <text x="145" y="100" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" opacity="0.8">Discover Careers That Fit You</text>
+</svg>

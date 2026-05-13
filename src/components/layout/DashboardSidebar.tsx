@@ -8,6 +8,7 @@ import {
   MessageSquare, Route, TrendingUp, Bookmark, 
   User, Settings 
 } from "lucide-react";
+import { Logo } from "@/components/ui/Logo";
 
 const SIDEBAR_LINKS = [
   { name: "Overview", href: "/dashboard", icon: LayoutDashboard },
@@ -32,11 +33,9 @@ export default function DashboardSidebar() {
       {/* Brand */}
       <div className="h-16 border-b border-border flex items-center px-6">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-6 h-6 rounded-md bg-primary flex items-center justify-center text-white font-bold text-xs">
-            CA
-          </div>
-          <span className="font-display font-bold text-lg tracking-tight text-foreground">
-            CareerAI
+          <Logo className="w-8 h-8 group-hover:scale-105 transition-transform" />
+          <span className="font-display font-bold text-xl tracking-tight text-foreground uppercase tracking-widest mt-0.5">
+            Carevo
           </span>
         </Link>
       </div>

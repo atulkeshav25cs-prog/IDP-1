@@ -1,0 +1,20 @@
+<svg viewBox="0 0 400 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="carevo-c" x1="0" y1="0" x2="60" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#10b981" />
+      <stop offset="100%" stopColor="#0ea5e9" />
+    </linearGradient>
+    <linearGradient id="carevo-v" x1="50" y1="0" x2="110" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stopColor="#60a5fa" />
+      <stop offset="100%" stopColor="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(10, 10)">
+    <path d="M 60 30 C 40 20, 15 25, 15 50 C 15 75, 40 85, 60 75" stroke="url(#carevo-c)" strokeWidth="12" strokeLinecap="round" />
+    <path d="M 25 35 C 35 25, 50 25, 60 30" stroke="#10b981" strokeWidth="12" strokeLinecap="round" style="opacity:0.8" />
+    <path d="M 50 25 L 75 80 L 105 20" stroke="url(#carevo-v)" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 90 25 L 75 60" stroke="#10b981" strokeWidth="12" strokeLinecap="round" />
+  </g>
+  <text x="140" y="75" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="64" font-weight="bold" letter-spacing="0.1em">CAREVO</text>
+  <text x="145" y="100" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="16">Discover Careers That Fit You</text>
+</svg>

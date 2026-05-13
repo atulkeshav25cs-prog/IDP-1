@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { UserButton, useAuth } from "@clerk/nextjs";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { Logo } from "@/components/ui/Logo";
 
 export default function Navbar() {
   const { isLoaded, userId } = useAuth();
@@ -31,18 +32,16 @@ export default function Navbar() {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
+          ? "bg-background/80 backdrop-blur-md border-b border-border py-3 shadow-sm"
           : "bg-transparent py-5"
       }`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg group-hover:scale-105 transition-transform">
-            CA
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-foreground">
-            CareerAI
+          <Logo className="w-10 h-10 group-hover:scale-105 transition-transform" />
+          <span className="font-display font-bold text-2xl tracking-tight text-foreground uppercase tracking-widest mt-1">
+            Carevo
           </span>
         </Link>
 
@@ -103,7 +102,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-border overflow-hidden"
+            className="md:hidden bg-background border-b border-border overflow-hidden"
           >
             <div className="container-custom py-6 flex flex-col gap-4">
               {navLinks.map((link) => (

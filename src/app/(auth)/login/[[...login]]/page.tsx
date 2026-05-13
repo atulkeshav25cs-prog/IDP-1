@@ -2,17 +2,18 @@
 
 import { SignIn } from "@clerk/nextjs";
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 import { motion } from "framer-motion";
 
 export default function LoginPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4 relative">
-      <Link href="/" className="absolute top-8 left-8 flex items-center gap-2 group">
-        <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">
-          CA
-        </div>
-        <span className="font-display font-bold text-xl text-foreground">CareerAI</span>
-      </Link>
+      <div className="mb-8">
+        <Link href="/" className="flex items-center gap-2 group justify-center">
+          <Logo className="w-8 h-8 group-hover:scale-105 transition-transform" />
+          <span className="font-display font-bold text-xl text-foreground uppercase tracking-widest mt-0.5">Carevo</span>
+        </Link>
+      </div>
 
       <motion.div 
         initial={{ opacity: 0, y: 20 }}

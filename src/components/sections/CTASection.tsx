@@ -10,8 +10,8 @@ export default function CTASection() {
       <div className="container-custom">
         <div className="premium-card bg-primary text-primary-foreground p-8 md:p-16 rounded-[2rem] text-center relative overflow-hidden">
           {/* Subtle background decoration */}
-          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[400px] h-[400px] bg-white/5 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[300px] h-[300px] bg-white/5 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/3 w-[400px] h-[400px] bg-primary-foreground/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 w-[300px] h-[300px] bg-primary-foreground/5 rounded-full blur-2xl pointer-events-none" />
 
           <div className="relative z-10 max-w-3xl mx-auto">
             <motion.h2 
@@ -40,7 +40,7 @@ export default function CTASection() {
               transition={{ delay: 0.2 }}
               className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
             >
-              <Link href="/assess" className="bg-white text-primary hover:bg-white/90 font-medium py-4 px-8 rounded-full inline-flex items-center transition-colors w-full sm:w-auto justify-center">
+              <Link href="/assess" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-medium py-4 px-8 rounded-full inline-flex items-center transition-colors w-full sm:w-auto justify-center">
                 Start Free Assessment
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Link>

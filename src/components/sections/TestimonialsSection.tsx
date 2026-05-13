@@ -5,7 +5,7 @@ import { Quote } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    quote: "CareerAI helped me realize that my passion wasn't coding — it was designing experiences. I switched to UX and couldn't be happier.",
+    quote: "Carevo helped me realize that my passion wasn't coding — it was designing experiences. I switched to UX and couldn't be happier.",
     name: "Priya Sharma",
     role: "Computer Science Student → UX Designer",
     avatar: "https://i.pravatar.cc/150?img=47",
@@ -26,13 +26,13 @@ const TESTIMONIALS = [
 
 export default function TestimonialsSection() {
   return (
-    <section id="testimonials" className="section-padding bg-secondary/30">
+    <section id="about" className="section-padding bg-secondary/30">
       <div className="container-custom">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="badge-soft mb-4">Success Stories</span>
           <h2 className="section-title mb-4">Lives changed by clarity.</h2>
           <p className="text-lg text-muted-foreground">
-            Don't just take our word for it. Hear from professionals who found their true calling using CareerAI.
+            Don't just take our word for it. Hear from professionals who found their true calling using Carevo.
           </p>
         </div>
 

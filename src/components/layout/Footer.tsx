@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
@@ -7,11 +8,9 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
           <div className="col-span-2 md:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-6 group inline-flex">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white font-bold text-lg">
-                CA
-              </div>
-              <span className="font-display font-bold text-xl tracking-tight text-foreground">
-                CareerAI
+              <Logo className="w-8 h-8" forceDark />
+              <span className="font-display font-bold text-xl tracking-tight text-foreground uppercase tracking-widest mt-0.5">
+                Carevo
               </span>
             </Link>
             <p className="text-muted-foreground text-sm max-w-xs leading-relaxed mb-6">
@@ -51,7 +50,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} CareerAI. All rights reserved.
+            © {new Date().getFullYear()} Carevo. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             {/* Social links placeholders */}

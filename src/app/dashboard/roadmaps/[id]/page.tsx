@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs/server";
 import { notFound } from "next/navigation";
 import { CheckCircle2, Circle, Clock, BookOpen, ExternalLink, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import RoadmapProgressButton from "@/components/roadmap/RoadmapProgressButton";
+import RoadmapTimeline from "@/components/roadmap/RoadmapTimeline";
 
 export default async function RoadmapDetailPage({ params }: { params: Promise<{ id: string }> | { id: string } }) {
   const resolvedParams = await params;
@@ -57,59 +57,7 @@ export default async function RoadmapDetailPage({ params }: { params: Promise<{ 
         </div>
       </div>
 
-      <div className="mt-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-border before:via-border before:to-transparent space-y-8">
-        {content.map((step: any, index: number) => {
-          const progressData = roadmap.progress.find(p => p.stepId === step.id);
-          const isCompleted = progressData?.status === "COMPLETED";
-          const isActive = index === completedSteps; // The current step they are on
-          
-          return (
-            <div key={step.id} className="relative flex items-start justify-between md:justify-normal md:odd:flex-row-reverse group">
-              {/* Timeline Marker */}
-              <div className={`flex items-center justify-center w-10 h-10 rounded-full border-4 border-background bg-card shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm z-10 transition-colors ${
-                isCompleted ? 'bg-primary border-primary/20 text-white' : isActive ? 'border-primary text-primary' : 'text-muted-foreground'
-              }`}>
-                {isCompleted ? <CheckCircle2 className="w-5 h-5" /> : <span className="font-bold text-sm">{index + 1}</span>}
-              </div>
-
-              {/* Content Card */}
-              <div className={`w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] premium-card p-6 transition-all ${
-                isActive ? 'border-primary shadow-md scale-[1.02]' : isCompleted ? 'opacity-70' : ''
-              }`}>
-                <div className="flex items-center gap-2 mb-3">
-                  <span className={`text-xs font-bold uppercase tracking-wider ${isActive ? 'text-primary' : 'text-muted-foreground'}`}>Phase {index + 1}</span>
-                  <div className="flex items-center text-xs text-muted-foreground bg-secondary px-2 py-1 rounded-md ml-auto">
-                    <Clock className="w-3 h-3 mr-1" /> {step.estimatedTime}
-                  </div>
-                </div>
-                
-                <h3 className={`font-display font-bold text-xl mb-3 ${isCompleted ? 'text-foreground/80' : 'text-foreground'}`}>{step.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6 leading-relaxed">{step.description}</p>
-                
-                <div className="space-y-3 mb-6">
-                  <h4 className="text-xs font-semibold text-foreground uppercase tracking-wider flex items-center gap-1.5"><BookOpen className="w-3.5 h-3.5" /> Learning Resources</h4>
-                  <ul className="space-y-2">
-                    {step.resources.map((res: string, i: number) => (
-                      <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground bg-secondary/30 p-2 rounded-md">
-                        <ExternalLink className="w-4 h-4 text-primary shrink-0 mt-0.5" />
-                        <span className="hover:text-foreground cursor-pointer transition-colors">{res}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-border">
-                  <RoadmapProgressButton 
-                    progressId={progressData?.id || ""} 
-                    isCompleted={isCompleted} 
-                    disabled={!isActive && !isCompleted && index !== 0} 
-                  />
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+      <RoadmapTimeline content={content} progress={roadmap.progress} completedSteps={completedSteps} />
     </div>
   );
 }

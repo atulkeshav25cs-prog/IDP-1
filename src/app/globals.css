@@ -74,33 +74,33 @@
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 9%; /* Charcoal */
+    --foreground: 0 0% 98%;
     
-    --card: 224 71% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 12%; /* Muted gray surface */
+    --card-foreground: 0 0% 98%;
     
-    --popover: 224 71% 6%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 98%;
     
-    --primary: 210 40% 98%;
-    --primary-foreground: 224 71% 10%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
     
-    --secondary: 224 71% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 98%;
     
-    --muted: 224 71% 12%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
     
-    --accent: 224 71% 15%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 98%;
     
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
     
-    --border: 224 71% 15%;
-    --input: 224 71% 15%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 0 0% 18%; /* Soft borders */
+    --input: 0 0% 18%;
+    --ring: 0 0% 80%;
   }
 }
 
@@ -211,9 +211,9 @@
 }
 
 .btn-primary:hover {
-  background-color: hsl(224, 71%, 15%);
+  opacity: 0.9;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .btn-secondary {

@@ -92,7 +92,7 @@ export const TESTIMONIALS = [
     name: "Priya Sharma",
     role: "Computer Science Student → UX Designer",
     quote:
-      "CareerAI helped me realize that my passion wasn't coding — it was designing experiences. I switched to UX and couldn't be happier.",
+      "Carevo helped me realize that my passion wasn't coding — it was designing experiences. I switched to UX and couldn't be happier.",
     avatar: "PS",
   },
   {
@@ -108,7 +108,7 @@ export const TESTIMONIALS = [
     name: "Aisha Patel",
     role: "Engineering Graduate → Product Manager",
     quote:
-      "I was overwhelmed with options after graduation. CareerAI gave me clarity, a roadmap, and the confidence to pursue product management.",
+      "I was overwhelmed with options after graduation. Carevo gave me clarity, a roadmap, and the confidence to pursue product management.",
     avatar: "AP",
   },
 ] as const;

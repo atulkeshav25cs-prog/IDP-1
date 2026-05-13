@@ -6,7 +6,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Career Assessment — CareerAI",
+  title: "Career Assessment — Carevo",
   description:
     "Take our AI-powered career assessment to discover career paths uniquely aligned with your personality, interests, and goals.",
 };
